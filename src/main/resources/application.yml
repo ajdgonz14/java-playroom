@@ -1,0 +1,40 @@
+server:
+  servlet:
+    context-path: /playroom/api
+
+spring:
+  profiles:
+    active: local
+#actuator security
+  security:
+    user:
+      name: "ace"
+      password: "welcome"
+
+  devtools:
+    restart:
+      enabled: true
+
+#actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        #beans, auditevents, mappings, health,info
+
+        #exclude: "auditevents"
+  info:
+    env:
+      enabled: true
+#actuator info
+info:
+  app:
+    name: "My Playroom"
+    description: "Play here"
+    version: "1.0.0"
+
+#custom properties
+guild:
+  name: "Fireworks"
+  master: "Eiiis"
