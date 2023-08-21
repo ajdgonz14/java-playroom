@@ -1,6 +1,7 @@
-package com.learning.java.api.playroom.dependency.injection;
+package com.learning.java.api.playroom.a.dependency.injection;
 
 import com.external.util.ExternalUtil;
+import com.learning.java.api.playroom.a.dependency.injection.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,14 +15,26 @@ public class DemoDependencyController {
     private Coach mycoach;
     private ExternalUtil externalUtil;
 
+    /*Setter injection
+        @Autowired
+        public void setCoach(Coach theCoach, ExternalUtil myUtil){
+            mycoach = theCoach;
+            externalUtil = myUtil;
+        }
+    */
+
+    //Constructor injection
     @Autowired
-    public  DemoDependencyController(Coach theCoach, ExternalUtil myUtil){
+    //using @Qualifier
+    //public DemoDependencyController(@Qualifier("baseballCoach") Coach theCoach, ExternalUtil myUtil) {
+
+    public DemoDependencyController(Coach theCoach, ExternalUtil myUtil) {
         mycoach = theCoach;
         externalUtil = myUtil;
     }
 
-    @GetMapping("/run")
-    ResponseEntity<?> run() {
+    @GetMapping("/demo")
+    ResponseEntity<?> demo() {
         return new ResponseEntity<>(mycoach.getDailyWorkout(), HttpStatus.OK);
     }
 

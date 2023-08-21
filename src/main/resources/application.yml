@@ -3,6 +3,8 @@ server:
     context-path: /playroom/api
 
 spring:
+  #main:
+  #  lazy-initialization: true
   profiles:
     active: local
 #actuator security
