@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/v1/dependency")
 public class DemoDependencyController {
-    private Coach mycoach;
-    private ExternalUtil externalUtil;
+    private final Coach mycoach;
+    private final ExternalUtil externalUtil;
 
     /*Setter injection
         @Autowired
